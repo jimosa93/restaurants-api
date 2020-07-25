@@ -10,8 +10,6 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.encryptPassword = async password => {
-  console.log('entra');
-
   const salt = await bcrypt.genSalt(10);
   return await bcrypt.hash(password, salt);
 };

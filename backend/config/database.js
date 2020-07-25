@@ -4,7 +4,7 @@ import config from '../config';
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      `mongodb://localhost/${config.MONGO_DB}`,
+      `mongodb://mongo:27017/${config.MONGO_DB}`,
       {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -13,7 +13,7 @@ const connectDB = async () => {
     );
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (err) {
-    console.log(`Error: ${err.message}`.red);
+    console.log(`Error: ${err.message}`);
     process.exit(1);
   }
 };

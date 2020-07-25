@@ -7,7 +7,7 @@ import {
 
 const router = express.Router();
 
-router.put('/', isAuth, getRestaurants);
+router.post('/', isAuth, getRestaurants);
 router.get('/transactions', isAuth, getRestaurantsTransactions);
 
 export default router;
