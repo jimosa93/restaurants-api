@@ -4,7 +4,24 @@ import config from '../config';
 
 const getRestaurants = async (req, res) => {
   try {
-    const { latitude, longitude } = req.body;
+    let { latitude, longitude, city } = req.body;
+    if ((!latitude || !longitude) && !city) {
+      res
+        .status(401)
+        .send({ msg: 'city or latitude and longitude are required!' });
+    }
+    if (city) {
+      const coordinates = await axios.get(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${config.ACCESS_TOKEN}`
+      );
+      const response = coordinates.data.features[0].center;
+      latitude = response[1];
+      longitude = response[0];
+      if (!latitude || !longitude) {
+        res.status(401).send({ msg: 'City not found!' });
+      }
+    }
+
     if (!latitude || !longitude) {
       res.status(401).send({ msg: 'latitude and longitude are required!' });
     } else {
