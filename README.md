@@ -26,7 +26,9 @@ docker-compose build
 
 ## Endpoints
 
-POST - `/api/users/signup` <br />
-POST - `/api/users/signin` <br />
-POST - `/api/restaurants` <br />
-GET - `/api/restaurants/transactions`
+| API                             | Description                                   | METHOD |
+| ------------------------------- | --------------------------------------------- | ------ |
+| `/api/users/signup`             | Create a new user                             | POST   |
+| `/api/users/signin`             | User Login with email and password            | POST   |
+| `/api/restaurants`              | Get nearby restaurants by city or coordinates | POST   |
+| `/api/restaurants/transactions` | Get transactions from authenticated user      | GET    |
