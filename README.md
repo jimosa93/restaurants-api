@@ -26,7 +26,7 @@ docker-compose build
 
 ## Endpoints
 
-POST - `/api/users/signup`
-POST - `/api/users/signin`
-POST - `/api/restaurants`
+POST - `/api/users/signup` <br />
+POST - `/api/users/signin` <br />
+POST - `/api/restaurants` <br />
 GET - `/api/restaurants/transactions`
